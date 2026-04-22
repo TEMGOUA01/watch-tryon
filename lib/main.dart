@@ -20,13 +20,31 @@ import 'theme/app_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
+  await _loadEnvSafe();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   // Register background message handler before runApp
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
   runApp(const MyApp());
+}
+
+Future<void> _loadEnvSafe() async {
+  try {
+    await dotenv.load(fileName: '.env');
+    return;
+  } catch (_) {
+    // Ignore and try web asset path fallback.
+  }
+
+  try {
+    await dotenv.load(fileName: 'assets/.env');
+    return;
+  } catch (_) {
+    // Ignore in production when env file is not bundled.
+  }
+
+  // App keeps running with default values when env is unavailable.
 }
 
 class MyApp extends StatelessWidget {

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "263595612990",
+    "project_id": "mrkapp-d2cf7",
+    "storage_bucket": "mrkapp-d2cf7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263595612990:android:cbc7c3273ccae8328eea6f",
+        "android_client_info": {
+          "package_name": "com.example.mrk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqgFCofuWBNHgX83l2lvjvu01sJGaaVEI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
